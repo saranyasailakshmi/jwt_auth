@@ -7,7 +7,7 @@ from .serializers import ProductSerializer
 from .validators import ProductValidator
 
 
-# 1. Create Product View
+
 class ProductCreateAPIView(APIView):
     permission_classes = [IsAuthenticated]
 
@@ -32,7 +32,6 @@ class ProductCreateAPIView(APIView):
         return Response(context)
 
 
-# 2. Get All Products
 class ProductListAPIView(APIView):
     permission_classes = [IsAuthenticated]
 
@@ -48,7 +47,6 @@ class ProductListAPIView(APIView):
         return Response(context)
 
 
-# 3. Update Product
 class ProductUpdateAPIView(APIView):
     permission_classes = [IsAuthenticated]
 
@@ -87,7 +85,6 @@ class ProductUpdateAPIView(APIView):
         return Response(context)
 
 
-# 4. Delete Product
 class ProductDeleteAPIView(APIView):
     permission_classes = [IsAuthenticated]
 
