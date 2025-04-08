@@ -11,10 +11,6 @@ from .validators import UserValidator, LoginValidator
 
 
 class RegisterUserAPIView(APIView):
-    """
-    API for registering users (email & password-based).
-    Only authenticated users can register others.
-    """
     permission_classes = [IsAuthenticated]
 
     def post(self, request):
@@ -27,7 +23,6 @@ class RegisterUserAPIView(APIView):
 
             validated_data = validator.validated_data
 
-            # Create user
             user = CustomUser.objects.create_user(
                 email=validated_data["email"],
                 password=validated_data["password"],
@@ -48,9 +43,6 @@ class RegisterUserAPIView(APIView):
 
 
 class LoginAPIView(APIView):
-    """
-    API for logging in users using email and password.
-    """
     permission_classes = [AllowAny]
 
     def post(self, request):
